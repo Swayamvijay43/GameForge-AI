@@ -4,6 +4,30 @@ Welcome to **GameForge AI**! This project is a multi-model Generative AI pipelin
 
 ---
 
+> **Fork note:** This is a team project built with [Manish-korde](https://github.com/Manish-korde) — original repository: [Manish-korde/GameForge-AI](https://github.com/Manish-korde/GameForge-AI). This fork highlights my contributions.
+
+## 👤 My Contributions ([Swayamvijay43](https://github.com/Swayamvijay43))
+
+### 1. Fine-tuned Transformer — natural language → structured JSON game spec
+* Fine-tuned `google/flan-t5-small` (HuggingFace Transformers, PyTorch) to turn plain-English game ideas into a JSON spec (`theme`, `environment`, `visualStyle`, `characters[]`, `weapons[]`, `props[]`).
+* Built the dataset: **2,000 unique prompt → JSON pairs** (1,600 / 200 / 200 split, 30+ themes).
+* Found that T5's tokenizer has no `{` / `}` tokens, added custom brace tokens and retrained.
+* Results on 200 held-out examples: **100% valid JSON**, **100% schema match**, **97.5% theme accuracy**.
+* Integrated into the FastAPI backend.
+
+### 2. Neural pose deformation for sprite animation (`feature/gameforge-pose-deformation` branch)
+* Turns one static sprite into `walk_1`, `walk_2`, `run`, `jump` and `attack_slash` frames.
+* Geometric baseline: 16-joint 2D skeleton with Linear Blend Skinning and nearest-neighbour resampling to keep pixel art crisp.
+* Neural model: `TorchFlowSTN`, a PyTorch spatial transformer network that predicts a dense flow field and warps the sprite with `F.grid_sample`.
+* Debugged training collapse via gradient tracing (LeakyReLU, zero-initialised flow head, zero padding, alpha snapping).
+* Results on 35 held-out samples: **L1 error −69%**, **PSNR +6.4 dB**, **silhouette IoU 0.957**, **100% of blurry outline pixels removed**, **~236 FPS** on an RTX 4060.
+* Limitation: training targets come from the geometric rig, so the network learns a faster version of the rig rather than hand-drawn animation.
+
+### Team components (co-developed / led by Manish-korde)
+DCGAN, Autoencoder, VAE similarity search, FastAPI + React app and Docker deployment.
+
+---
+
 ## 🧠 Master Pipeline Architecture
 
 ```text
