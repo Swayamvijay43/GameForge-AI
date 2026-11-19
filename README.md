@@ -4,9 +4,9 @@ Welcome to **GameForge AI**! This project is a multi-model Generative AI pipelin
 
 ---
 
-> **Fork note:** This is a team project built with [Manish-korde](https://github.com/Manish-korde) — original repository: [Manish-korde/GameForge-AI](https://github.com/Manish-korde/GameForge-AI). This fork highlights my contributions.
+> **Fork note:** Team project that I formed and led as team lead, built with [Manish-korde](https://github.com/Manish-korde), who hosts the original repository: [Manish-korde/GameForge-AI](https://github.com/Manish-korde/GameForge-AI). This fork highlights my contributions.
 
-## 👤 My Contributions ([Swayamvijay43](https://github.com/Swayamvijay43))
+## 👤 My Contributions ([Swayamvijay43](https://github.com/Swayamvijay43)) — Team Lead
 
 ### 1. Fine-tuned Transformer — natural language → structured JSON game spec
 * Fine-tuned `google/flan-t5-small` (HuggingFace Transformers, PyTorch) to turn plain-English game ideas into a JSON spec (`theme`, `environment`, `visualStyle`, `characters[]`, `weapons[]`, `props[]`).
@@ -23,7 +23,7 @@ Welcome to **GameForge AI**! This project is a multi-model Generative AI pipelin
 * Results on 35 held-out samples: **L1 error −69%**, **PSNR +6.4 dB**, **silhouette IoU 0.957**, **100% of blurry outline pixels removed**, **~236 FPS** on an RTX 4060.
 * Limitation: training targets come from the geometric rig, so the network learns a faster version of the rig rather than hand-drawn animation.
 
-### Team components (co-developed / led by Manish-korde)
+### Team components (built together with Manish-korde)
 DCGAN, Autoencoder, VAE similarity search, FastAPI + React app and Docker deployment.
 
 ---
